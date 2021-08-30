@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @development.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @development.description %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @development.keywords %>
+</p>
+
+<p>
+  <strong>Significance in sector:</strong>
+  <%= @development.significance_in_sector %>
+</p>
+
+<p>
+  <strong>Significance general:</strong>
+  <%= @development.significance_general %>
+</p>
+
+<%= link_to 'Edit', edit_development_path(@development) %> |
+<%= link_to 'Back', developments_path %>

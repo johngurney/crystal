@@ -1,0 +1,57 @@
+Event for <%= @development.name %>
+
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :development_id, :value => @development.id %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, :style => "width: 600px; height: 40px", :class => "large_text" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description, :style => "width: 800px; height: 200px",:class => "large_text" %>
+  </div>
+
+  <div class="field" style="margin-top: 14px">
+    <%= form.label :start_date %>
+    <div class="field" style="margin-top: 10px">
+      <scan class="large_text">
+        <%= form.date_select :start_date, order: [:day, :month, :year] %>
+      </scan>
+    </div>
+  </div>
+
+  <div class="field" style="margin-top: 14px">
+    <%= form.label :end_date %>
+    <div class="field" style="margin-top: 10px">
+      <scan class="large_text">
+        <%= form.date_select :end_date, order: [:day, :month, :year] %>
+      </scan>
+    </div>
+  </div>
+
+
+  <div class="field" style="margin-top: 14px">
+    Policy or action</br>
+    <div class="field" style="margin-top: 0px">
+        <%= form.select :policy_action, [[" Policy","0"],["Action","1"]], {selected: event.policy_action ? 1 : 0}, {class: "large_text", style: "width:120px"} %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "large_button", style: "width:120px"  %>
+  </div>
+<% end %>

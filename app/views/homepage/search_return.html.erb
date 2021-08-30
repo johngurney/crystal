@@ -1,0 +1,67 @@
+<div style="margin-top: 20px;">
+  <%= form_tag timeline_pdf_path, method: "get" do %>
+    <%= hidden_field_tag :start_date, @start_date %>
+    <%= hidden_field_tag :end_date, @end_date %>
+
+    <table width="80%"  style="background-color: lightblue; border-style: solid; border-width: 1px;">
+      <col width="10%">
+      <col width="40%">
+      <col width="15%">
+      <col width="45%">
+      <tr>
+        <td>
+        </td>
+        <td>
+          Title
+        </td>
+        <td>
+          Significance
+        </td>
+        <td>
+          Events
+        </td>
+      </tr>
+
+      <% @developments.each do |development| %>
+        <tr>
+          <td>
+            <%= check_box_tag "check" + development.id.to_s %>
+          </td>
+          <td>
+            <%= link_to development.name, development_path(development) %>
+          </td>
+          <td>
+            In sector <%= development.significance_in_sector.to_s %>
+            General <%= development.significance_general.to_s %>
+          </td>
+          <td>
+            <table>
+              <col width="30%">
+              <col width="20%">
+              <col width="50%">
+              <% development.events.order(:start_date).each do |event| %>
+              <tr>
+                <td>
+                  <%= event.start_date.to_s(:short) %> to <%= event.end_date.to_s(:short) %>
+                </td>
+                <td>
+                  <%= event.policy_action_string %>
+                </td>
+                <td>
+                  <%= event.name %>
+                </td>
+
+
+              </tr>
+              <% end %>
+            </table>
+
+
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <%= submit_tag "Table pdf", :class =>"small_button" %>
+    <%= submit_tag "Timeline pdf", :class =>"small_button" %>
+  <% end %>
+</div>

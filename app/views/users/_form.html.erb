@@ -1,0 +1,55 @@
+
+  <%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <table width="100%">
+    <col width="15%">
+    <col width="35%">
+    <col width="15%">
+    <col width="35%">
+    <tr>
+      <td>First name</td>
+      <td><%= form.text_field :first_name, :class => "small_field"  %></td>
+      <td>Last name</td>
+      <td><%= form.text_field :last_name, :class => "small_field"  %></td>
+    </tr>
+    <tr>
+      <td>Email address</td>
+      <td><%= form.text_field :email, :class => "small_field"  %></td>
+    </tr>
+
+    <div class="field" style="margin-top: 14px">
+      Status
+      <div class="field" style="margin-top: 0px">
+          <%= form.select :status, ["User", "Curator", "Admin"], {selected: user.status}, {class: "large_text", style: "width:120px"} %>
+      </div>
+    </div>
+
+    <tr>
+      <td>
+      </td>
+      <td>
+        <%= form.submit "Update", :class => "small_button" %>
+      </td>
+    </tr>
+
+
+
+
+  </table>
+
+
+
+
+<% end %>

@@ -1,0 +1,89 @@
+<%= link_to "All developments", root_path %></br>
+
+<div style="margin-top:20px; font-size:20px; font-weight:bold">
+  Search</br>
+</div>
+
+<div style="margin-top:20px;">
+  <table width="50%" border="1">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <tr>
+      <td>
+        Keywords
+      </td>
+      <td>
+        Dates
+      </td>
+      <td>
+        Significance
+      </td>
+      <td>
+        Search terms
+      </td>
+
+    </tr>
+
+    <%= form_tag  search_path, method: "get" do %>
+      <tr>
+        <td>
+          <% Keyword.all.order(:name).each do | keyword | %>
+          <span style="white-space: nowrap;">
+            <%=check_box_tag 'check' + keyword.id.to_s %>
+            <%= keyword.name %>
+          </span>
+          <% end %>
+        </td>
+        <td>
+          Start: <%= date_field_tag :start_date, Date.today, :class => "small_button"  %>
+          End: <%= date_field_tag :end_date, Date.today + 90.days, :class => "small_button"  %>
+        </td>
+        <td>
+          In sector <%= select_tag :significance_in_sector, options_for_select([["0 - None","0"],["1 - Negligible","1"], ["2 - Moderate","2"], ["3 - Substantial","3"], ["4 - Immense","4"], ["5 - Overwhelming","5"]], 0), {:class => "small_button"} %>
+          General <%= select_tag :significance_general, options_for_select([["0 - None","0"],["1 - Negligible","1"], ["2 - Moderate","2"], ["3 - Substantial","3"], ["4 - Immense","4"], ["5 - Overwhelming","5"]], 0), {:class => "small_button"} %>
+        </td>
+        <td>
+          <%= text_field_tag :search_text, "", {:class =>"small_button", :style => "width: 150px; text-align: left; padding-left: 5px" } %>
+        </td>
+
+      </tr>
+
+      <tr>
+        <td>
+          <%= submit_tag "Search", {:class =>"small_button", :style => "width"} %>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+
+      </tr>
+
+    <% end %>
+
+  </table>
+</div>
+
+
+<% if logged_in_user.present? && !logged_in_user.isuser? %>
+
+  <div style="font-size:20px; margin-top:30px; font-weight:bold">
+    Edit
+  </div>
+
+  <div style="margin-top:10px">
+    <%= link_to 'Developments', developments_path  %></br>
+  </div>
+  <% if logged_in_user.isadmin? %>
+    <div style="margin-top:10px">
+      <%= link_to 'Users', users_path %></br>
+    </div>
+    <div style="margin-top:10px">
+      <%= link_to 'Keywords', keywords_path %></br>
+    </div>
+  <% end %>
+<% end %>

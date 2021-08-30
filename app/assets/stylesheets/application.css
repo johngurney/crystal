@@ -1,0 +1,214 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+    .large_button{
+
+        display: table-cell;
+        vertical-align: middle;
+        width: 120px;
+        height: 40px;
+        max-height: 45px;
+        font-family: Arial;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 10pt;
+        border: 3px solid blue;
+        color: black;
+        background: white;
+        margin: 5px;
+
+    }
+
+    .large_text{
+
+        vertical-align: top;
+        font-family: Arial;
+        text-align: left;
+        border-radius: 10px;
+        font-size: 10pt;
+        border: 3px solid blue;
+        color: black;
+        background: white;
+        margin: 5px;
+        padding: 6px;
+
+    }
+
+    .small_field{
+      width: 280px;
+      height: 34px;
+      font-family: Arial;
+      text-align: left;
+      border-radius: 10px;
+      font-size: 11pt;
+      border: 3px solid blue;
+      color: black;
+      background: white;
+      padding: 3px;
+    }
+
+    .small_button{
+      display: table-cell;
+      vertical-align: middle;
+      width: 110px;
+      height: 28px;
+      max-height: 28px;
+      font-family: Arial;
+      text-align: center;
+      line-height: 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 9pt;
+      border: 1px solid blue;
+      color: black;
+      background: white;
+      margin: 5px;
+    }
+
+    .very_small_button{
+      display: table-cell;
+      vertical-align: middle;
+      width: 60px;
+      height: 20px;
+      font-family: Arial;
+      text-align: center;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 8pt;
+      border: 1px solid blue;
+      color: black;
+      background: white;
+      margin: 2px;
+    }
+    .small_button1{
+      font-family: Arial;
+      text-align: left;
+      line-height: 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 9pt;
+      border: 1px solid blue;
+      color: black;
+      background: white;
+    }
+
+    .select_box {
+      style: box;
+      background: #f0f0f0;
+      border-color: #101010;
+    }
+
+    .file_field_tag_filepath {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space:nowrap;
+          direction: rtl;
+          font-weight: normal;
+          font-size: 85%;
+          }
+
+      .file_field_tag_filename {
+        font-weight: bold;
+        margin-left:5px;
+        text-align: left;
+        font-size: 75%;
+        }
+
+      .flex_row {
+          height: 60px;
+          display: inline-flex;
+          flex-direction: row;
+          align-items: center;
+          }
+
+      .flex_col {
+          display: inline-flex;
+          flex-direction: column;
+          }
+
+      input[type="file"] {
+              display: none;
+          }
+
+    .make_button {
+       cursor: pointer;
+       }
+
+
+    .select_box_wrapper {
+      /* display: inline-block; */
+      background: #f0f0f0;
+      border-color: #606060;
+      border-style: solid;
+      border-width: 6px;
+      border-radius: 10px;
+      padding: 6px;
+      font-family: Arial;
+      font-size: 11pt;
+    }
+
+    .select_box_wrapper1 {
+      background: #f0f0f0;
+      border-color: #606060;
+      border-style: solid;
+      border-width: 6px;
+      border-radius: 10px;
+      padding: 6px;
+      font-family: Arial;
+      font-size: 11pt;
+    }
+
+    .select_box_list {
+      height: 140px;
+      overflow-y: scroll;
+    }
+
+    .standard_button {
+        width: 100;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 5mm;
+        border: 2px solid blue;
+        color: black;
+        background: white;
+        width: 200px;
+        height: 50px;
+        padding: 5px;
+        }
+
+        h3 {
+          margin-top: 2px;
+          margin-bottom: 5px;
+        }
+
+        h4 {
+          margin-top: 1px;
+          margin-bottom: 3px;
+        }
+        canvas {
+            padding: 0;
+            margin: auto;
+            display: block;
+            width: 800px;
+        }
+
+        .bottom_right {
+          position: absolute;
+          bottom: 0px;
+          right: 4px;
+        }
